@@ -1,0 +1,50 @@
+\ProvidesPackage{format}
+\pagenumbering{gobble}
+
+% Margins
+% -------
+\usepackage[bottom=1in, left=1in, right=1in]{geometry}
+
+% Custom Packages
+% ---------------
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage[fontsize=11pt]{scrextend}
+
+% Font Sizes
+% ----------
+\newcommand{\sizeone}{2em}
+\newcommand{\sizetwo}{1.318em}
+\newcommand{\sizethree}{1em}
+\newcommand{\sizefour}{0.618em}
+\newcommand{\sizefive}{0.382em}
+\newcommand{\sizesix}{0.236em}
+
+% Main Font
+% ---------
+\setmainfont[Path=fonts/, BoldFont=CrimsonText-Bold, ItalicFont=CrimsonText-Italic]{CrimsonText-Regular}
+\defaultfontfeatures{Ligatures=TeX}
+
+% Font Styles
+% -----------
+\newcommand{\montLight}[1]{
+    \fontsize{\sizethree}{\sizethree}
+    {\fontspec[Path = fonts/]{Montserrat-Light} #1}
+}
+\newcommand{\montReg}[1]{
+    \fontsize{\sizeone}{\sizeone}
+	{\fontspec[Path = fonts/,LetterSpace=5]{Montserrat-Regular} #1}
+}
+
+% Personal Info
+% -------------
+\newcommand{\header}[5]{
+    \begin{center}
+    	\montReg{#1}\\
+    	\vspace{\sizefour}
+    	\montLight{#2 -- #3 -- #4 -- #5}
+    	\vspace{\sizefive}
+    \end{center}
+    \raggedright{\hrule height 0.5pt}
+    \vspace{\sizefour}
+}
